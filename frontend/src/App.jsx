@@ -1,14 +1,23 @@
-import { useState } from 'react'
-
-import './App.css'
+import { useAuth0 } from "@auth0/auth0-react";
+import { useNavigate } from "react-router-dom";
 
 function App() {
+  const { loginWithRedirect, isAuthenticated } = useAuth0();
+  const navigate = useNavigate();
 
+  const handleGetStarted = () => {
+    if (isAuthenticated) {
+      navigate("/analyze");
+    } else {
+      loginWithRedirect();
+    }
+  };
+  
   return (
     <>
-      <p>Get Started page</p>
+      <button onClick={handleGetStarted}>Get Started</button>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
