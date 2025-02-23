@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans:wght@400;600&family=Roboto:wght@400;700&display=swap');
+
+
+*{
+    font-family: 'Lato ', sans-serif;  /* Change to preferred font */
+    font-style: normal;  
+}
+
+.reportItems {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+
+
+.reportBox {
+    background-color: white; /* Keep the button white */
+    border: none;
+    color: #C9A227; /* Text color */
+    padding: 15px 40px;
+    cursor: pointer;
+    font-size: 13px;
+    text-align: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+    border-radius: 10px; /* Slightly rounded corners */
+}
+
+/* Hover Effect */
+.reportBox:hover {
+    background-color: #C9A227; /* Muted Gold */
+    color: white; /* White text */
+    border-color: #9B841C; /* Darker Gold border */
+    transform: scale(1.03);
+}
+
+
+.logoutContainer {
+    margin-top: auto;
+    padding-bottom: 50px;
+    width: 100%;
+}
+
+.logoutButton {
+    display: flex;
+    align-items: center;
+    padding: 4px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border-radius: 8px;
+    background-color: #365A55; /* Darker Teal for depth */
+    color: white;
+}
+
+/* Hover Effect */
+.logoutButton:hover {
+    background-color: #365A55; /* Darker shade for better hover effect */
+    transform: scale(1.05);
+}
+
+.logoutbtn {
+    all: unset;
+    cursor: pointer;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    
+}
+
+
+
+/* Icon Styling */
+.logoutIcon {
+    margin-right: 5px;
+    font-size: 25px;
+    color: white; /* Make sure icon matches the button color */
+}
+
+  

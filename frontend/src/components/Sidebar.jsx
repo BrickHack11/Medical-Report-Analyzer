@@ -1,16 +1,20 @@
 import React from "react";
 import { FaHistory, FaCog, FaQuestionCircle, FaSignOutAlt } from "react-icons/fa";
 import LogoutButton from "./LogoutButton";
+import activityhistory from "../assets/activityhistory.svg";  
+import styles from "./Sidebar.module.css";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Sidebar = ({ user }) => {
   // Extract the first letter of the email (if available)
   const userInitial = user?.email ? user.email.charAt(0).toUpperCase() : "?";
-
+  
+  const { logout } = useAuth0();
   return (
     <div
       style={{
-        width: "250px",
-        background: "#6d8f85", // Single color for sidebar
+        width: "200px",
+        background: "#6d8f85", 
         color: "white",
         padding: "20px",
         display: "flex",
@@ -22,15 +26,15 @@ const Sidebar = ({ user }) => {
       {/* Profile Circle */}
       <div
         style={{
-          width: "80px",
-          height: "80px",
+          width: "70px",
+          height: "70px",
           borderRadius: "50%",
-          backgroundColor: "#4b6b61",
+          backgroundColor: "#C9A227",
           color: "white",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          fontSize: "32px",
+          fontSize: "30px",
           fontWeight: "bold",
           textTransform: "uppercase",
           marginBottom: "15px",
@@ -39,45 +43,37 @@ const Sidebar = ({ user }) => {
         {userInitial}
       </div>
 
-      <h2 style={{ marginBottom: "10px" }}>Dashboard</h2>
+      <p style={{fontSize: "15px"}}>{user.email}</p>
+      
+      <div style={{display:"flex", gap: "20px", alignItems:"center", justifyContent:"center"}}>
+          <img src={activityhistory} alt="AI Magic" />
+          <h2 style={{ marginBottom: "10px", fontSize:"20px",color:"white" }}>Saved History</h2>
 
+      </div>
+      
       {/* Divider Line */}
       <hr style={{ width: "100%", border: "0.5px solid white", marginBottom: "15px" }} />
 
       {/* Sidebar Sections */}
       <div style={{ width: "100%" }}>
-        <div style={{ display: "flex", alignItems: "center", padding: "10px 15px" }}>
-          <FaHistory style={{ marginRight: "10px" }} />
-          <h4>Saved History</h4>
+
+
+        <div className={styles.reportItems}>
+        <button className={styles.reportBox}> Report : 2025-01-02 </button>
+      <button className={styles.reportBox}> Report : 2025-01-02 </button>
+      <button className={styles.reportBox}> Report : 2025-01-02 </button>
         </div>
 
-        <ul style={{ listStyleType: "none", padding: "0 20px", textAlign: "left" }}>
-          <li>Diabetes Report</li>
-          <li>Diabetes Report</li>
-          <li>Diabetes Report</li>
-          <li>Diabetes Report</li>
-          <li>Diabetes Report</li>
-        </ul>
-
-        {/* Additional Sections */}
-        <div style={{ display: "flex", alignItems: "center", padding: "10px 15px" }}>
-          <FaCog style={{ marginRight: "10px" }} />
-          <h4>Settings</h4>
-        </div>
-
-        <div style={{ display: "flex", alignItems: "center", padding: "10px 15px" }}>
-          <FaQuestionCircle style={{ marginRight: "10px" }} />
-          <h4>Help</h4>
-        </div>
       </div>
 
-      {/* Logout Button */}
-      <div style={{ marginTop: "auto", paddingBottom: "20px", width: "100%" }}>
-        <div style={{ display: "flex", alignItems: "center", padding: "10px 15px", cursor: "pointer" }}>
-          <FaSignOutAlt style={{ marginRight: "10px" }} />
-          <LogoutButton />
+      <div className={styles.logoutContainer}>
+        <div className={styles.logoutButton}>
+          <FaSignOutAlt className={styles.logoutIcon} />
+          <button className={styles.logoutbtn} onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}> Logout </button>
         </div>
-      </div>
+       </div>
+
+
     </div>
   );
 };

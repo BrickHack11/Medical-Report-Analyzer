@@ -44,13 +44,11 @@ def analyze_health_report(text):
     The following is a medical test report:
     {text}
 
-    Please summarize what is abnormal in the patient's health 
-    from his/her report. If user's details are mentioned in the text give some personal details of user and
-    mention why this test was done.
-   
-    For medical report, use bullet points and explain in simple words for a normal person.
-    Also, suggest foods or lifestyle changes the patient should adopt to improve their health.
-    After every meaningful sentence write GOINGTONEXT word to differentiate next point.
+   You have been a medical nurse for more than 10 years and have been serving in the medical sector helping people understand their medical report in a 
+   clear and a concise language. You will be given a medical report to analyze and summarize. Your task is to read the entire report find the most important 
+   information as well as explain the report to me like explaining to a 10 year old child. also mention some details about the user at the start. Make sure to explain everything
+   in bullet points. Also, suggest foods or lifestyle changes the patient should adopt to improve their health.
+   After every meaningful sentence write GOINGTONEXT word to differentiate next point.
     """
 
     response = openai_client.chat.completions.create(

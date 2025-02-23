@@ -1,0 +1,140 @@
+/* .reportContainer {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 10%;
+} */
+
+.reportContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 1%;  /* Reduce margin to prevent it from going above */
+    max-height: 90vh; /* Restrict overall height to 90% of the viewport */
+    overflow-y: auto; /* Enable scrolling if content exceeds height */
+    position: relative;
+}
+
+
+.left_side {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Left Side: File Viewer */
+.filePreview {
+    max-width: 800px;
+    max-height: 500px;
+    overflow: auto; /* Scroll if content exceeds limits */
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.pdfViewer {
+    width: 100%;
+    max-width: 800px; /* Restrict width */
+    height: 500px;
+    border: none;
+}
+.scrollContainer {
+    max-width: 800px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+/* .imagePreview {
+    width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+} */
+.imagePreview {
+    width: 100%;
+    max-width: 600px; /* Restrict maximum width */
+    max-height: 500px; /* Limit max height */
+    object-fit: contain;
+    overflow: hidden; /* Allow scrolling for large images */
+    display: block;
+    margin: auto;
+}
+
+/* Right Side: Summary */
+.summaryContainer {
+    width: 50%;
+    background: #eef7f3;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #6d8f85;
+    height: auto;  /* Allows dynamic height */
+    max-height: 90vh; /* Prevents it from becoming too large */
+    overflow-y: auto; /* Enables scrolling if needed */
+    display: flex;
+    flex-direction: column;
+}
+
+
+h2 {
+    color: #2c6a4b;
+}
+
+/* .summaryList {
+    list-style-type: none;
+    padding-left: 0;
+} */
+
+.summaryList {
+    list-style-type: none;
+    padding-left: 0;
+    max-height: none; /* Remove restrictions */
+    overflow-y: visible; /* Ensure content is not clipped */
+}
+
+
+.summaryList li {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.saveButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #6d8f85;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.saveButton:hover {
+    background: #4c7666;
+}
+
+
+
+/* left heading */
+
+.left_headings {
+    display: flex;
+    align-items: center;
+    /* gap: 10px; */
+  }
+  
+  .left_icon {
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 30px;
+  }
+  
+  .left_label {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .left_fileName {
+    background-color: #f4f4f4;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
