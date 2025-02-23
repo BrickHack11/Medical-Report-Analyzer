@@ -200,3 +200,77 @@ h2 {
 .cancelButton:hover {
     background: #8d8d8d;
 }
+
+
+
+
+/* Language Dropdown */
+.languageDropdown {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: white;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* Align AI Summary title and Dropdown */
+.summaryHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Loading Spinner */
+.loadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #6d8f85;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Adjust Summary List */
+.summaryList {
+    list-style-type: none;
+    padding-left: 0;
+    max-height: none; /* Remove restrictions */
+    overflow-y: visible; /* Ensure content is not clipped */
+}
+
+/* Summary List Items */
+.summaryList li {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+/* Save Summary Button */
+.saveButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #6d8f85;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.saveButton:hover {
+    background: #4c7666;
+}

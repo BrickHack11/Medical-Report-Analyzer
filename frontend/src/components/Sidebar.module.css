@@ -1,85 +1,121 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans:wght@400;600&family=Roboto:wght@400;700&display=swap');
 
-
-*{
-    font-family: 'Lato ', sans-serif;  /* Change to preferred font */
-    font-style: normal;  
+* {
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
 }
 
+.sidebarContainer {
+    width: 250px;
+    background: #6d8f85;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 90vh;
+    height:max-content;
+    /* overflow-y: auto; */
+}
+
+
+
+.profileCircle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #C9A227;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0 auto 15px auto;
+}
+
+.userEmail {
+    text-align: center;
+    font-size: 15px;
+}
+
+.savedHistory {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    /* margin-bottom: 10px; */
+}
+
+.savedHistory h2 {
+    font-size: 20px;
+    color: white;
+}
+
+.divider {
+    width: 100%;
+    border: 0.5px solid white;
+    margin-bottom: 15px;
+}
+
+/* Report List */
 .reportItems {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 20px;
+    gap: 10px;
     width: 100%;
-    max-width: 600px;
-    margin: auto;
+    margin-bottom: auto; /* Push logout button to bottom */
 }
 
-
 .reportBox {
-    background-color: white; /* Keep the button white */
+    background-color: white;
     border: none;
-    color: #C9A227; /* Text color */
+    color: #C9A227;
     padding: 15px 40px;
     cursor: pointer;
     font-size: 13px;
     text-align: center;
-    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
-    border-radius: 10px; /* Slightly rounded corners */
+    transition: 0.3s;
+    border-radius: 10px;
 }
 
-/* Hover Effect */
 .reportBox:hover {
-    background-color: #C9A227; /* Muted Gold */
-    color: white; /* White text */
-    border-color: #9B841C; /* Darker Gold border */
+    background-color: #C9A227;
+    color: white;
     transform: scale(1.03);
 }
 
+.noReports {
+    text-align: center;
+    color: white;
+}
 
+/* Logout Button */
 .logoutContainer {
-    margin-top: auto;
-    padding-bottom: 50px;
-    width: 100%;
+    padding-top: 20px; /* Ensures spacing from reports */
 }
 
 .logoutButton {
+    width: 100%;
     display: flex;
     align-items: center;
-    padding: 4px 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    justify-content: center;
+    padding: 10px;
     border-radius: 8px;
-    background-color: #365A55; /* Darker Teal for depth */
+    background-color: #365A55;
     color: white;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s;
 }
 
-/* Hover Effect */
 .logoutButton:hover {
-    background-color: #365A55; /* Darker shade for better hover effect */
+    background-color: #2d4a48;
     transform: scale(1.05);
 }
 
-.logoutbtn {
-    all: unset;
-    cursor: pointer;
-    color: white;
-    padding: 4px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 18px;
-    
-}
-
-
-
-/* Icon Styling */
 .logoutIcon {
     margin-right: 5px;
-    font-size: 25px;
-    color: white; /* Make sure icon matches the button color */
+    font-size: 20px;
 }
-
-  

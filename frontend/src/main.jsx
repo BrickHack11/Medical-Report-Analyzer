@@ -9,8 +9,8 @@ const root = createRoot(document.getElementById("root"));
 
 root.render(
   <Auth0Provider
-    domain="dev-nrtgu8ldxckio66d.us.auth0.com"
-    clientId="IPUZo961F5VIc9tX7lmjAFEx1X2Tp9Um"
+    domain="dev-0nhwzi6gjnr3si3j.us.auth0.com"
+    clientId="hkrYzU8xTSyyJfP3aLKnU4sHxGikZvkG"
     authorizationParams={{
       redirect_uri: window.location.origin + "/analyze",
     }}

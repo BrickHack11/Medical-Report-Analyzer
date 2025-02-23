@@ -4,7 +4,7 @@ import { FaTimes } from "react-icons/fa";
 import upwardarrow from "../assets/upwardarrow.svg";
 import ReportSummary from "./ReportSummary"; // Import new component
 
-const UploadSection = () => {
+const UploadSection = ({ selectedReport, setSelectedReport }) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [fileUrl, setFileUrl] = useState("");
   const [fileType, setFileType] = useState("");
@@ -70,7 +70,6 @@ const UploadSection = () => {
       clearInterval(progressInterval);
       setUploadProgress(100);
       setAnalysisReport(result.analysis_report); // Store analysis report
-
     } catch (error) {
       console.error("Error uploading file:", error);
       setUploadProgress(0);
@@ -78,14 +77,50 @@ const UploadSection = () => {
     }
   };
 
-  // Show ReportSummary component if API response is available
+  // useEffect(() => {
+  //   if (!selectedReport) {
+  //     setSelectedFile(null);
+  //     setFileUrl("");
+  //     setFileType("");
+  //     setIsProcessing(false);
+  //     setUploadProgress(0);
+  //     setAnalysisReport(null);
+  //   }
+  // }, [selectedReport]); 
+
+
+  // ✅ Show previously saved report if selected from sidebar
+  if (selectedReport) {
+    return (
+      <div className={styles.mycontainer}>
+        <ReportSummary
+          fileUrl={`http://127.0.0.1:5000/uploads/${selectedReport.file_name}`} // ✅ Fetch from backend/uploads
+          fileType={selectedReport.file_name.endsWith(".pdf") ? "pdf" : "image"} // ✅ Detect file type
+          analysisReport={selectedReport.analysis_report}
+          fileName={selectedReport.file_name}
+          onBack={() => setSelectedReport(null)} // ✅ Go back to UploadSection
+        />
+      </div>
+    );
+  }
+
+  // ✅ Show ReportSummary when a new report is generated
   if (analysisReport) {
     return (
       <div className={styles.mycontainer}>
-         <ReportSummary fileUrl={fileUrl} fileType={fileType} analysisReport={analysisReport} fileName={selectedFile.name} />
+        <ReportSummary
+          fileUrl={fileUrl}
+          fileType={fileType}
+          analysisReport={analysisReport}
+          fileName={selectedFile.name}
+          onBack={() => {
+            setAnalysisReport(null); // Reset back to upload section
+            setSelectedFile(null);
+          }}
+        />
       </div>
     );
-     }
+  }
 
   return (
     <div className={styles.mainContainer}>

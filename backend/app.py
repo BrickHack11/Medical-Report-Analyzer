@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_from_directory, abort
 from flask_cors import CORS
 from pymongo import MongoClient
 import os
@@ -14,6 +14,11 @@ load_dotenv()
 
 app = Flask(__name__)
 CORS(app)  
+
+
+UPLOAD_FOLDER = os.path.join(os.getcwd(), "uploads")  # Ensure absolute path
+app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
+
 
 # MongoDB Connection
 MONGO_URI = os.getenv("MONGODB_URI")  
@@ -160,6 +165,62 @@ def fetch_reports():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+
+
+
+
+
+# Route to serve uploaded files
+@app.route("/uploads/<path:filename>")
+def serve_uploaded_file(filename):
+    file_path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
+
+    if not os.path.exists(file_path):
+        print(f"🚨 ERROR: File Not Found -> {file_path}")  # Debugging log
+        return abort(404)  # Return 404 if file does not exist
+
+    return send_from_directory(app.config["UPLOAD_FOLDER"], filename)
+
+
+
+@app.route("/translate", methods=["POST"])
+def translate_report():
+    try:
+        data = request.json
+
+        # Validate input fields
+        if "translate_to" not in data or "analysis_report" not in data:
+            return jsonify({"error": "Missing required fields"}), 400
+
+        target_language = data["translate_to"]
+        analysis_report = data["analysis_report"]
+
+        if not isinstance(analysis_report, list):
+            return jsonify({"error": "'analysis_report' must be a list"}), 400
+
+        # Construct the prompt for translation
+        prompt = f"""
+        Translate the following medical report into {target_language}:
+
+        {chr(10).join(analysis_report)}
+
+        Ensure the translation is accurate and maintains the medical terminology. Keep the format intact.
+        """
+
+        response = openai_client.chat.completions.create(
+            model="gpt-4o",
+            messages=[{"role": "system", "content": "You are a professional medical translator."},
+                      {"role": "user", "content": prompt}]
+        )
+
+        translated_text = response.choices[0].message.content.strip().split("\n")
+
+        return jsonify({"translated_report": translated_text})
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 
 
 

@@ -31,7 +31,7 @@ function App() {
       <div className="content-container">
         {/* Left Section: Text */}
         <div className="text-section">
-          <h1>Your Medical Reports, Simplified</h1>
+          <h1>Your Medical Reports, Simplified !!</h1>
           <p>
             Instantly generate an easy-to-read summary of your medical documents by
             following these simple steps:
@@ -52,9 +52,11 @@ function App() {
             </div>
           </div>
 
-          <button className="get-started-btn" onClick={handleGetStarted}>
-            Get Started
-          </button>
+          <div className="get-started-container">
+            <button className="get-started-btn" onClick={handleGetStarted}>
+              Get Started
+            </button>
+          </div>
         </div>
       </div>
 
