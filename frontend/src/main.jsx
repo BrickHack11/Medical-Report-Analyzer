@@ -19,6 +19,7 @@ root.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/analyze" element={<Analyze />} />
+        <Route path="/temp" element={<div></div>} />
       </Routes>
     </Router>
   </Auth0Provider>
