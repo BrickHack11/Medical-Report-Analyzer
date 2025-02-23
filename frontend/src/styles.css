@@ -1,25 +1,6 @@
-/* Reset default margin and padding */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Main container resizes dynamically based on content height */
-.container {
-  position: relative;
-  width: 100%;
-  min-height: 100vh; /* Ensures full height initially */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-/* Wrapper for video */
+/* Video Background Styling */
 .video-wrapper {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -28,52 +9,115 @@
   z-index: -1;
 }
 
-/* Video styling: dynamically adjusts to fit content */
 .background-video {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures video covers the available content area */
-  filter: brightness(80%) contrast(110%);
-  animation: fadeIn 2s ease-in-out; /* Smooth fade-in effect */
+  object-fit: cover;
 }
 
-/* Gradient overlay effect */
 .video-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+  background: rgba(0, 0, 0, 0.6); /* Dark overlay for contrast */
 }
 
-/* Content styling */
-.content {
-  position: relative;
-  z-index: 1;
-  padding: 50px;
+/* Main Content Layout */
+.content-container {
+  display: flex;
+  justify-content: flex-start; /* Align text to the left */
+  align-items: center;
+  width: 85%;
+  margin: auto;
+  height: 100vh;
   color: white;
-  text-align: center;
-  font-size: 1.5rem;
-  background: rgba(0, 0, 0, 0.4); /* Adds readability */
-  border-radius: 10px;
-  backdrop-filter: blur(10px); /* Blur effect */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Soft shadow */
+  position: relative; /* Needed for absolute positioning of the image */
 }
 
-/* Smooth text fade-in animation */
-.fade-in-text {
-  opacity: 0;
-  animation: fadeInText 2s ease-in-out forwards;
+/* Left Section: Text Content */
+.text-section {
+  flex: 1;
+  max-width: 50%;
+  background: rgba(0, 0, 0, 0.7); /* Dark background for readability */
+  padding: 30px;
+  border-radius: 12px;
+  backdrop-filter: blur(5px); /* Blur effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Soft shadow effect */
+  text-align: left;
 }
 
-/* Keyframes for fade-in effects */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+/* Title */
+.text-section h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.9); /* Stronger shadow */
 }
 
-@keyframes fadeInText {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Description */
+.text-section p {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #e0e0e0;
+}
+
+/* Steps */
+.steps {
+  margin-top: 20px;
+}
+
+/* Step Item */
+.step {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.step img {
+  width: 45px;
+  height: 45px;
+  margin-right: 15px;
+}
+
+.step span {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Get Started Button */
+.get-started-btn {
+  background-color: #6d9b8b;
+  color: white;
+  padding: 15px 28px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-top: 25px;
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.get-started-btn:hover {
+  background-color: #5a8877;
+  transform: scale(1.05);
+}
+
+/* Right Section: Doctors Image - Slightly Larger and Positioned at Bottom Right */
+.image-section {
+  position: fixed;
+  right: 20px; /* Small padding from the right */
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.image-section img {
+  max-height: 55vh; /* Increased height for better visibility */
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 10px; /* Slight padding from the bottom */
 }
