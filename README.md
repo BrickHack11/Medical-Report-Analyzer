@@ -1,5 +1,8 @@
 # Medi-Genie
 
+Medi-Genie is an innovative AI-powered tool designed to simplify and make medical reports more accessible to everyone, regardless of their medical knowledge. Many medical reports are filled with complex terminology that can be hard for non-medical users to understand. This project aims to bridge that gap, offering a user-friendly platform that transforms intricate medical jargon into easily digestible, actionable insights.
+
+
 ## Inspiration
 Medical reports are often filled with complex medical jargon, making it difficult for non-medical users to understand their health status.  
 Inspired by the need to make healthcare more accessible and transparent, we built an AI-powered tool that simplifies medical reports, making them easy to read and interpret.  
