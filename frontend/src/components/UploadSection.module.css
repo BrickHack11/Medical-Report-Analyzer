@@ -8,9 +8,27 @@
     overflow-y: auto; /* Enable scrolling if content is too large */
     position: relative;
 }
+
+.main_data {
+    display: flex;
+    flex-direction: row;
+   
+}
+
+.header_sep {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header_sep h1 {
+    color: #6d8f85;
+}
 .mainContainer {
     display: flex;
     flex-direction: column;
+    
     align-items: center;
 }
 
@@ -139,3 +157,24 @@
     color: gray;
     margin-top: 5px;
 }
+
+
+
+
+
+.image_section {
+    position: fixed;
+    right: 20px; /* Small padding from the right */
+    bottom: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  
+  .image_section img {
+    max-height: 55vh; /* Increased height for better visibility */
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 10px; /* Slight padding from the bottom */
+  }
+  

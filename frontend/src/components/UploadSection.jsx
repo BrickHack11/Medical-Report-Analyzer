@@ -3,6 +3,8 @@ import styles from "./UploadSection.module.css";
 import { FaTimes } from "react-icons/fa";
 import upwardarrow from "../assets/upwardarrow.svg";
 import ReportSummary from "./ReportSummary"; // Import new component
+import doctorsImage from "../assets/doctors.png"; 
+
 
 const UploadSection = ({ selectedReport, setSelectedReport }) => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -123,7 +125,12 @@ const UploadSection = ({ selectedReport, setSelectedReport }) => {
   }
 
   return (
+    <div className={styles.header_sep}>
+    <h1>MediGenie</h1>
+    <div className={styles.main_data}>
+   
     <div className={styles.mainContainer}>
+      
       {!isProcessing ? (
         <div className={styles.uploadContainer}>
           <img src={upwardarrow} alt="arrow" />
@@ -170,6 +177,15 @@ const UploadSection = ({ selectedReport, setSelectedReport }) => {
           <p className={styles.waitText}>Please wait for a few seconds...</p>
         </div>
       )}
+    </div>
+
+      <div>
+          <div className={styles.image_section}>
+            <img src={doctorsImage} alt="Doctors" />
+          </div>
+      </div>
+
+    </div>
     </div>
   );
 };
