@@ -40,7 +40,7 @@ Inspired by the need to make healthcare more accessible and transparent, we buil
 📌 Optimizing AI models for better accuracy in text extraction and analysis  
 📌 Enhancing user experience for better engagement and accessibility  
 
-## What's next for Medical-Report-Analyzer
+## What's next for MediGenie
 🎯 **Voice-Based Summarization:** Provide AI-generated voice summaries for reports  
 🎯 **More AI-powered Insights:** Expand to detecting potential health risks and anomalies  
 🎯 **Mobile App Version:** Build an iOS & Android app for on-the-go accessibility  
